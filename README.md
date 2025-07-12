@@ -13,5 +13,9 @@
 2. Пользователь вводит в поисковую строку "test123"
 3. Пользователь нажимает Enter
 
-Ожидаемый результат:
+## Ожидаемый результат:
 Пользователь должен увидеть, что поиск не выдает результатов, отображается подсказка "There are no spendings"
+
+## Фактический результат:
+<img width="1080" height="719" alt="allure_home" src="https://github.com/user-attachments/assets/600169eb-560b-4836-9850-914e1058e779" />
+<img width="1919" height="911" alt="test_case_1" src="https://github.com/user-attachments/assets/8fca3388-cb94-4d55-81a3-d065efcc6bfd" />
