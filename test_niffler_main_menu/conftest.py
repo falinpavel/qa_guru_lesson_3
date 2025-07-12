@@ -4,7 +4,7 @@ from selene import browser, be, have
 
 
 @allure.title("Login in Niffler and logout after test")
-@pytest.fixture(scope="session", autouse=True)
+@pytest.fixture(scope="function", autouse=True)
 def login_and_logout(open_close_browser):
     with allure.step("Login in Niffler"):
         browser.element('input[name="username"]').type('stas')

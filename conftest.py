@@ -1,23 +1,24 @@
 import allure
 import pytest
 import logging
-from selene import browser, have, be
+from selene import browser
 from selenium.webdriver.chrome.options import Options
 
 
-@pytest.fixture(scope="session", autouse=True)
+@pytest.fixture(scope="function", autouse=True)
 def setup_browser():
     chrome_options = Options()
     chrome_options.add_argument("--log-level=3")
     chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])
     chrome_options.add_argument("--start-maximized")
+    chrome_options.add_argument("--disable-notifications")
     browser.config.driver_options = chrome_options
     logging.getLogger("selene").setLevel(logging.ERROR)
     return chrome_options
 
 
 @allure.title("Open browser and go to Niffler.qa.guru, quit browser after test")
-@pytest.fixture(scope="session", autouse=True)
+@pytest.fixture(scope="function", autouse=True)
 def open_close_browser(setup_browser):
     with allure.step("Open browser and go to Niffler.qa.guru"):
         # browser.config.window_width, browser.config.window_height = 1920, 1080
