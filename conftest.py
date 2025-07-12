@@ -21,7 +21,7 @@ def setup_browser():
 
 @allure.title("Open browser and go to Niffler.qa.guru, quit browser after test")
 @pytest.fixture(scope="session", autouse=True)
-def open_close_browser_fixture(setup_browser):
+def open_close_browser(setup_browser):
     with allure.step("Open browser and go to Niffler.qa.guru"):
         # browser.config.window_width, browser.config.window_height = 1920, 1080
         browser.open('https://niffler.qa.guru')
@@ -32,7 +32,7 @@ def open_close_browser_fixture(setup_browser):
 
 @allure.title("Login in Niffler and logout after test")
 @pytest.fixture(scope="session", autouse=True)
-def login_and_logout_fixture(open_close_browser_fixture):
+def login_and_logout(open_close_browser):
     with allure.step("Login in Niffler"):
         browser.element('input[name="username"]').type('stas')
         browser.element('input[name="password"]').type('12345')
