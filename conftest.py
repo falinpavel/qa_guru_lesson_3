@@ -25,6 +25,5 @@ def login_and_logout_fixture(browser_fixture):
     yield
     with allure.step("Logout from Niffler"):
         browser.element('button[aria-haspopup]').should(be.visible).click()
-        elements = browser.all('li[role="menuitem"]')
-        elements[3].should(be.visible).click()
+        browser.element('//li[@role="menuitem"][contains(text(), "Sign out")]').should(be.visible).click()
         browser.element('button.css-1v1p78s[type="button"]').click()
